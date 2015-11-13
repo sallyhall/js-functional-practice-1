@@ -13,10 +13,9 @@
 // 0. write your own forEach() that takes two arguments: an array, and a callback
 
 function forEach(array, callback){
-    // YOUR CODE HERE
     var length = array.length;
     for (var i=0;i<length;i++){
-      callback(array[i]);
+      callback(array[i],i,array);
     }
 }
 
@@ -85,16 +84,14 @@ function longest(){
     var args = [].slice.call(arguments);
 
     // .. do something with each element of args
-    var longest=args[0];
+    var longestStr="";
     forEach(args,function(string){
-      if (string.length>longest.length){
-        longest=string;
+      if (string.length>longestStr.length){
+        longestStr=string;
       }
     })
-    return longest;
+    return longestStr;
 }
-
-
 
 
  console.assert( longest("this", "is", "a", "awesome", "function") === "function" );
